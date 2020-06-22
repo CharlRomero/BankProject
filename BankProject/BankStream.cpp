@@ -1,4 +1,7 @@
 #include "BankStream.h"
+#include <iostream>
+
+using namespace std;
 
 BankStream::BankStream() {}
 BankStream::~BankStream() {}
@@ -12,3 +15,14 @@ BankStream::~BankStream() {}
 void BankStream::modifyFile(Person customer){}
 
 void BankStream::readFile(Person customer) {}
+
+void BankStream::writeFile(Person customer) {
+	this->file.open("cuentas.txt", ios::out);
+
+	if (this->file.fail()) {
+		cout << "No se pudo abrir el archivo." << endl;		
+	}
+
+	this->file << "";
+	this->file.close();
+}

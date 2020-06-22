@@ -11,7 +11,7 @@
 class Person;
 
 #include "Person.h"
-#include <ostream>
+#include <fstream>
 
 using namespace std;
 
@@ -24,9 +24,10 @@ public:
     Person searchCustomer(void);
     void modifyFile(Person customer);
     void readFile(Person customer);
+    void writeFile(Person customer);
 
     Person** person;
 private:
-    ofstream file();
+    ofstream file;
 };
 #endif
