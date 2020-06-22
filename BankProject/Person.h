@@ -10,28 +10,30 @@
 #define __ModeloBancario_Person_h
 
 #include <iostream>
+#include "Account.h"
 
 using namespace std;
 
 class Person {
 public:
-    Person(string,string,string,int);
+    Person(Account, string, string, string, int);
     Person();
     ~Person();
     string getName(void);
-    void setName(string newName);
+    void setName(string);
     string getId(void);
-    void setId(string newID);
+    void setId(string);
     string getNacionality(void);
-    void setNacionality(string newNacionality);
+    void setNacionality(string);
     int getAge(void);
-    void setAge(int newAge);
-
-protected:
+    void setAge(int);
+    Account getAccount();
+    void setAccount(Account);
 private:
     string name;
     string id;
     string nacionality;
     int age;
+    Account account;
 };
 #endif
