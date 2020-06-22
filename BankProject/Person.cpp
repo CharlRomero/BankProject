@@ -1,6 +1,7 @@
 #include "Person.h"
 
-Person::Person(string name, string id, string nacionality, int age) {
+Person::Person(Account account, string name, string id, string nacionality, int age) {
+	this->account = account;
 	this->name = name;
 	this->id = id;
 	this->nacionality = nacionality;
