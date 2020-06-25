@@ -30,7 +30,9 @@ class Check	{
 		bool identificationCard(string);
 private:
 	char lastDigit(string);
-	int calculateTen(int);
+	int calculateTen(int);	
+	int charToInt(char);
+	char intToChar(int);
 };
 
 ////////////////////////////////////////////////////////////////////////
@@ -136,26 +138,70 @@ bool Check::identificationCard(string identificationCard) {
 }
 
 char Check::lastDigit(string identificationCard) {
-	int* par = new int[5];
-	int* impar = new int[4];
-	int result = 0;
-
+	int aux, impar, result = 0;
 	for (size_t i = 0; i < 5; i++) {
-		const char* aux = new char(identificationCard[i]);
-		*(par + i) = 2 * atoi(aux + (2 * i));
+		aux = (2 * charToInt(identificationCard.at(2 * i)));
 		if (i < 4)
-			*(impar + i) = atoi(aux + (2 * i + 1));
+			impar = charToInt(identificationCard.at((2 * i + 1)));
 
-		if (*(par + i) >= 10)
-			*(par + i) -= 9;
+		if (aux >= 10)
+			aux -= 9;
 
-		result += *(par + i) + *(impar + i);
+		result += (aux + impar);
+		impar = 0;
 	}
-
-	return (calculateTen(result) - result);
+	result = calculateTen(result) - result;
+	return intToChar(result);
 }
 
 int Check::calculateTen(int ten) {
-	return ten - (ten % 10) + 10;
+	return (ten - (ten % 10)) + 10;
+}
+
+int Check::charToInt(char val) {
+	if (val == 48)
+		return 0;
+	if (val == 49)
+		return 1;
+	if (val == 50)
+		return 2;
+	if (val == 51)
+		return 3;
+	if (val == 52)
+		return 4;
+	if (val == 53)
+		return 5;
+	if (val == 54)
+		return 6;
+	if (val == 55)
+		return 7;
+	if (val == 56)
+		return 8;
+	if (val == 57)
+		return 9;
+
+}
+
+char Check::intToChar(int val) {
+	if (val == 0)
+		return '0';
+	if (val == 1)
+		return '1';
+	if (val == 2)
+		return '2';
+	if (val == 3)
+		return '3';
+	if (val == 4)
+		return '4';
+	if (val == 5)
+		return '5';
+	if (val == 6)
+		return '6';
+	if (val == 7)
+		return '7';
+	if (val == 8)
+		return '8';
+	if (val == 9)
+		return '9';
 }
 #endif
