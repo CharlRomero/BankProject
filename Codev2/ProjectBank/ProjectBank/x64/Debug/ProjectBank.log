@@ -1,0 +1,11 @@
+﻿  ProjectBank.cpp
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(70): warning C4101: 'e': variable local sin referencia
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(91): warning C4101: 'e': variable local sin referencia
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(108): warning C4101: 'e': variable local sin referencia
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(136): warning C4101: 'e': variable local sin referencia
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(243): warning C4101: 'e': variable local sin referencia
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(274): warning C4101: 'e': variable local sin referencia
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(185): warning C4715: 'Check::charToInt': no todas las rutas de acceso de control devuelven un valor
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(208): warning C4715: 'Check::intToChar': no todas las rutas de acceso de control devuelven un valor
+c:\users\sarita\documents\3. semestre\estructura de datos\1proyecto\code\projectbank\projectbank\check.h(278): warning C4715: 'Check::checkAccount': no todas las rutas de acceso de control devuelven un valor
+  ProjectBank.vcxproj -> C:\Users\Sarita\Documents\3. SEMESTRE\Estructura de Datos\1Proyecto\Code\ProjectBank\x64\Debug\ProjectBank.exe
