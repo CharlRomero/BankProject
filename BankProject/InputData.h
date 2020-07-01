@@ -16,7 +16,7 @@
 
 #include<iostream>
 #include "Check.h"
-#include "Email.h"
+#include "Model/Person.h"
 
 using namespace std;
 
@@ -150,10 +150,9 @@ private:
 };
 template <>         class InputData<Person> {
 public:
-    Person data() {
+    void data() {
         InputData<string> enter;
-        InputData<Date> enterDate;
-        Email email;
+        InputData<Date> enterDate;        
 
         name = enter.data("Ingrese su nombre: ");
         lastName = enter.data("Ingrese su apellido: ");
@@ -164,8 +163,7 @@ public:
             lastName = enter.data("Ingrese su apellido: ");
             nacionality = enter.data("Ingrese su nacionalidad: ");            
         }
-        Person person(name, lastName, ci, nacionality, enterDate.date("Ingrese su fecha de nacimiento\n"));
-        person.setEmail(email.generateEmail(person.getName(), person.getLastName()));
+        Person person(name, lastName, ci, nacionality, enterDate.date("Ingrese su fecha de nacimiento\n"));        
 
         return person;
     }
