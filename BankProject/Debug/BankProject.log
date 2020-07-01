@@ -1,2 +1,45 @@
-﻿  Menu.cpp
-  BankProject.vcxproj -> C:\Users\Charlie\source\repos\BankProject\Debug\BankProject.exe
+﻿  BankProject.cpp
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankProject.cpp(18,23): error C2660: 'Menu::menu': function does not take 1 arguments
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Menu.h(260,12): message : see declaration of 'Menu::menu'
+  BankStream.cpp
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(49,54): error C2664: 'Person::Person(const Person &)': cannot convert argument 4 from 'std::string' to 'Date'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(49,42): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Person.h(11,2): message : see declaration of 'Person::Person'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(67,65): error C2039: 'getId': is not a member of 'Person'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Person.h(9): message : see declaration of 'Person'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(6,26): error C2084: function 'BankStream::BankStream(void)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(23): message : see previous definition of '{ctor}'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(7,27): error C2084: function 'BankStream::~BankStream(void)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(24): message : see previous definition of '{dtor}'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(15,18): error C2039: 'modifyFile': is not a member of 'BankStream'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(20): message : see declaration of 'BankStream'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(17,18): error C2039: 'readFile': is not a member of 'BankStream'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(20): message : see declaration of 'BankStream'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(19,45): error C2511: 'void BankStream::writeFile(Person)': overloaded member function not found in 'BankStream'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.h(20): message : see declaration of 'BankStream'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(20,2): error C2671: 'BankStream::writeFile': static member functions do not have 'this' pointers
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(22,5): error C2671: 'BankStream::writeFile': static member functions do not have 'this' pointers
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(26,2): error C2671: 'BankStream::writeFile': static member functions do not have 'this' pointers
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\BankStream.cpp(27,2): error C2671: 'BankStream::writeFile': static member functions do not have 'this' pointers
+  Customer.cpp
+  Date.cpp
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(2,51): error C2084: function 'Date::Date(std::string,std::string,std::string)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(37): message : see previous definition of '{ctor}'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(7,14): error C2084: function 'Date::~Date(void)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(43): message : see previous definition of '{dtor}'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(9,23): error C2084: function 'std::string Date::getDay(void)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(44): message : see previous definition of 'getDay'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(10,31): error C2084: function 'void Date::setDay(std::string)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(45): message : see previous definition of 'setDay'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(12,25): error C2084: function 'std::string Date::getMonth(void)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(46): message : see previous definition of 'getMonth'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(13,35): error C2084: function 'void Date::setMonth(std::string)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(47): message : see previous definition of 'setMonth'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(15,24): error C2084: function 'std::string Date::getYear(void)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(48): message : see previous definition of 'getYear'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.cpp(16,33): error C2084: function 'void Date::setYear(std::string)' already has a body
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Date.h(49): message : see previous definition of 'setYear'
+  Menu.cpp
+  Person.cpp
+  Transaction.cpp
+  Generating Code...

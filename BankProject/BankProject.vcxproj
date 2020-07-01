@@ -147,14 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Account.cpp" />
     <ClCompile Include="BankProject.cpp" />
-    <ClCompile Include="BankStream.cpp" />
-    <ClCompile Include="Customer.cpp" />
-    <ClCompile Include="Date.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Person.cpp" />
-    <ClCompile Include="Transaction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.h" />

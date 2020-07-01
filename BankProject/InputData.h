@@ -15,123 +15,162 @@
 #define __Input_Data_h
 
 #include<iostream>
-#include"Check.h"
+#include "Check.h"
+#include "Email.h"
 
 using namespace std;
 
-template <class T> class InputData{
+template <class T>  class InputData{
 public:
-	InputData();    
-	string matrizFloatDouble(int, int);		
-    string floatDouble();
+	InputData() {}
+    string InputData<T>::matrizFloatDouble(int i, int j) {
+        cout << "\nIngrese valor[" << i << "][" << j << "]: ";
+        cin >> value;
+        while (check.floatDouble(value)) {
+            cout << "\nIngreso erroneo, vuelva a ingresar: ";
+            cin >> value;
+        }
+        return value;
+    }
+    string InputData<T>::floatDouble() {
+        cout << "\nIngrese valor real:  ";
+        cin >> value;
+        while (check.floatDouble(value)) {
+            cout << "\nIngreso erroneo, vuelva a ingresar: ";
+            cin >> value;
+        }
+        return value;
+    }
 private:
     Check check;   
     string value;
 };
-template <>        class InputData<int> {
+template <>         class InputData<int> {
 public:
-    string integer(string);
-    string positiveInteger(string);
-    string integerArray(int);    
-    string matrizInteger(int, int);
+    string integer(string message) {
+        cout << message;
+        cin >> value;
+        while (check.integer(value)) {
+            cout << "\nIngreso erroneo, vuelva a ingresar: ";
+            cin >> value;
+        }
+        return value;
+    }
+    string positiveInteger(string message) {
+        cout << message;
+        cin >> value;
+        while (check.positiveInteger(value)) {
+            cout << "\nIngreso erroneo, vuelva a ingresar: ";
+            cin >> value;
+        }
+        return value;
+    }
+    string integerArray(int i) {
+        cout << "\nIngrese valor[" << i << "]: ";
+        cin >> value;
+        while (check.integer(value)) {
+            cout << "\nIngreso erroneo, vuelva a ingresar: ";
+            cin >> value;
+        }
+        return value;
+    }
+    string matrizInteger(int const i, int const j) {
+        cout << "\nIngrese valor[" << i << "][" << j << "]: ";
+        cin >> value;
+        while (check.integer(value)) {
+            cout << "\nIngreso erroneo, vuelva a ingresar: ";
+            cin >> value;
+        }
+        return value;
+    }
 private:
     Check check;
     string value;
 };
-template <>        class InputData<double> {
+template <>         class InputData<double> {
 public:
-    string realArray(int const);
+    string realArray(int i) {
+        cout << "\nIngrese valor real[" << i << "]: ";
+        cin >> value;
+        while (check.floatDouble(value)) {
+            cout << "\nIngreso erroneo, vuelva a ingresar: ";
+            cin >> value;
+        }
+        return value;
+    }
 private:
     Check check;
     string value;
 };
 template <>         class InputData<string> {
 public:
-    string CI(string);
+    string CI(string message) {
+        cout << message;
+        cin >> value;
+        while (check.identificationCard(value)) {
+            cout << "\nCedula incorrecta, ingrese nuevamente: ";
+            cin >> value;
+        }
+        //while para verificar si existe en el archivo
+        return value;
+    }
+    string data(string message) {
+        cout << message;
+        cin >> value;
+        while (check.character(value)) {
+            cout << "\nNo use caracteres especiales, ingrese nuevamente: ";
+            cin >> value;
+        }
+        return value;
+    }
 private:
     Check check;
     string value;
 };
-///Construtor
-template <class T> InputData<T>::InputData(){}
-
-template <class T> string InputData<T>::matrizFloatDouble(int i, int j) {
-    cout << "\nIngrese valor[" << i << "][" << j << "]: ";
-    cin >> value;
-    while (check.floatDouble(value)) {
-        cout << "\nIngreso erroneo, vuelva a ingresar: ";
-        cin >> value;
+template <>         class InputData<Date> {
+public:
+    Date date(string message) {
+        cout << message;
+        InputData<int> enter;
+        year = enter.positiveInteger("Ingrese el anio: ");
+        month = enter.positiveInteger("Ingrese el mes (1/12): ");
+        day = enter.positiveInteger("Ingrese el dia: ");       
+        while (check.date(year, month, day, 2020)) {
+            cout << "Fecha incorrecta, ingrese nuevamente...\n";
+            year = enter.positiveInteger("Ingrese el anio: ");
+            month = enter.positiveInteger("Ingrese el mes (1/12): ");
+            day = enter.positiveInteger("Ingrese el dia: ");            
+        }        
+        Date date(day, month, year);
+        return date;
     }
-    return value;
-}
+private:
+    Check check;
+    string day, month, year;
+};
+template <>         class InputData<Person> {
+public:
+    Person data() {
+        InputData<string> enter;
+        InputData<Date> enterDate;
+        Email email;
 
-template <class T> string InputData<T>::floatDouble(){ 	
- 	cout << "\nIngrese valor real:  ";
- 	cin  >> value;
- 	while (check.floatDouble(value)) {
- 		cout << "\nIngreso erroneo, vuelva a ingresar: ";
- 		cin  >> value;
+        name = enter.data("Ingrese su nombre: ");
+        lastName = enter.data("Ingrese su apellido: ");
+        nacionality = enter.data("Ingrese su nacionalidad: ");
+        ci = enter.CI("Ingrese su cedula: ");
+        while (check.character(name, lastName, nacionality)) {
+            name = enter.data("Ingrese su nombre: ");
+            lastName = enter.data("Ingrese su apellido: ");
+            nacionality = enter.data("Ingrese su nacionalidad: ");            
+        }
+        Person person(name, lastName, ci, nacionality, enterDate.date("Ingrese su fecha de nacimiento\n"));
+        person.setEmail(email.generateEmail(person.getName(), person.getLastName()));
+
+        return person;
     }
-	return value;
-}
-
-string InputData<int>::integer(string message) {
-    cout << message;
-    cin >> value;
-    while (check.integer(value)) {
-        cout << "\nIngreso erroneo, vuelva a ingresar: ";
-        cin >> value;
-    }
-    return value;
-}
-
-string InputData<int>::positiveInteger(string message){
- 	cout << message;
- 	cin  >> value;
- 	while (check.positiveInteger(value)) {
- 		cout << "\nIngreso erroneo, vuelva a ingresar: ";
- 		cin >> value;
-	}
-	return value;
-}
-
-string InputData<int>::integerArray(int i) {
-    cout << "\nIngrese valor[" << i << "]: ";
-    cin >> value;
-    while (check.integer(value)) {
-        cout << "\nIngreso erroneo, vuelva a ingresar: ";
-        cin >> value;
-    }
-    return value;
-}
-
-string InputData<int>::matrizInteger(int const i, int const j) {
- 	cout << "\nIngrese valor[" << i << "][" << j << "]: ";
- 	cin  >> value;
- 	while (check.integer(value)) {
- 		cout << "\nIngreso erroneo, vuelva a ingresar: ";
- 		cin  >> value;
-	}
-	return value;
-}
-
-string InputData<double>::realArray(int i) {
-    cout << "\nIngrese valor real[" << i << "]: ";
-    cin >> value;
-    while (check.floatDouble(value)) {
-        cout << "\nIngreso erroneo, vuelva a ingresar: ";
-        cin >> value;
-    }
-    return value;
-}
-
-string InputData<string>::CI(string message) {
-    cout << message;    
-    cin >> value;    
-    while (check.identificationCard(value)) {
-        cout << "\nCedula incorrecta, ingrese nuevamente: ";
-        cin >> value;
-    }
-    return value;
-}
+private:
+    Check check;
+    string name, lastName, nacionality, ci;
+};
 #endif
