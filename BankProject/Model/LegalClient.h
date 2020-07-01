@@ -1,4 +1,3 @@
-#pragma once
 #if !defined(__Legal_h)
 #define __Legal_h
 #include "Person.h"

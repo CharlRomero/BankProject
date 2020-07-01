@@ -1,4 +1,3 @@
-#pragma once
 /***********************************************************************
  * Module:  CustumerType.h
  * Author:  Abigail
@@ -9,7 +8,7 @@
 #if !defined(__ModeloBancario_CustumerType_h)
 #define __ModeloBancario_CustumerType_h
 
-#include "Person.h"
+#include "..\Model\Person.h"
 
 class Customer : public Person {
 public:

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -148,20 +148,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BankProject.cpp" />
+    <ClCompile Include="ControllerNaturalClient.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Account.h" />
-    <ClInclude Include="BankStream.h" />
     <ClInclude Include="Check.h" />
+    <ClInclude Include="Controller\BankStream.h" />
     <ClInclude Include="Controller\ControllerAccount.h" />
-    <ClInclude Include="Customer.h" />
+    <ClInclude Include="Controller\ControllerLegalClient.h" />
+    <ClInclude Include="Controller\ControllerNaturalClient.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="InputData.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Model\Account.h" />
     <ClInclude Include="Model\Customer.h" />
     <ClInclude Include="Model\LegalClient.h" />
     <ClInclude Include="Model\NaturalClient.h" />
-    <ClInclude Include="Person.h" />
+    <ClInclude Include="Model\Person.h" />
     <ClInclude Include="Transaction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

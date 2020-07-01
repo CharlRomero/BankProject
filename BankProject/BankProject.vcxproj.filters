@@ -24,16 +24,13 @@
     <ClCompile Include="BankProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ControllerNaturalClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Customer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Account.h">
-      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Transaction.h">
       <Filter>Header Files\Model</Filter>
@@ -45,9 +42,6 @@
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Model\LegalClient.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Person.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Date.h">
@@ -62,8 +56,20 @@
     <ClInclude Include="InputData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BankStream.h">
+    <ClInclude Include="Controller\BankStream.h">
       <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Person.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\ControllerLegalClient.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\ControllerNaturalClient.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Account.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

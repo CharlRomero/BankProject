@@ -2,8 +2,8 @@
 #if !defined(__Controller_Legal_Client_h)
 #define __Controller_Legal_Client_h
 
-#include "Controller/BankStream.h"
-#include "Model/LegalClient.h"
+#include "BankStream.h"
+#include "..\Model\LegalClient.h"
 
 class ControllerLegalClient : BankStream{
 public:
@@ -12,7 +12,7 @@ public:
         if (write.fail())
             cout << "No se pudo abrir el archivo..." << endl;
 
-        write << legalClient.getId() + " " + legalClient.getName() + " " + legalClient.getNacionality() + " " + legalClient.getRUC();
+        write << legalClient.getId() + " " + legalClient.getName() + " " + legalClient.getNacionality() + " " + " " + legalClient.getAge() + " " + legalClient.getRUC();
 
         write.close();
     }
@@ -20,11 +20,11 @@ public:
         read.open(path, ios::in);
 
         if (read.is_open()) {
-            string id, name, nacionality, ruc;
+            string id, name, nacionality, age, ruc;
             vector<LegalClient> legalClients;
             while (!read.eof()) {
-                read >> id, name, nacionality, ruc;
-                LegalClient legalClient(id, name, nacionality, ruc);
+                read >> id >> name >> nacionality >> age >> ruc;
+                LegalClient legalClient(id, name, nacionality, age, ruc);
                 legalClients.push_back(legalClient);
             }
             return legalClients;
