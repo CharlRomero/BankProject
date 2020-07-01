@@ -7,6 +7,11 @@
 
 class ControllerLegalClient : BankStream{
 public:
+    //Constructor
+    ControllerLegalClient(string path) : BankStream(path) {}
+    //Destroyer
+    ~ControllerLegalClient() {}
+
     void writeFile() {
         write.open(path, ios::out | ios::app);
         if (write.fail())
