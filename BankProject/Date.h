@@ -1,4 +1,3 @@
-#pragma once
 /***********************************************************************
  * Module:  Date.h
  * Author:  Abigail
@@ -10,25 +9,42 @@
 #define __ModeloBancario_Date_h
 
 #include <iostream>
-#include "Account.h"
+#include <string>
 
-class Date : public Account {
+
+using namespace std;
+
+class Date {
 public:
-    Date(string, string, string);
-    ~Date();
-    string getDay(void);
-    void setDay(string newDay);
-    string getMonth(void);
-    void setMonth(string newMonth);
-    string getYear(void);
-    void setYear(string newYear);
-    Date calcDate(void);
+    //Constructors
+    Date(string year, string month, string day) {
+        this->year = year;
+        this->day = day;
+        this->month = month;
+    }
+    Date() { this->day = ""; this->month = ""; this->year = ""; }
+    //Destroyer
+    ~Date() {}
+    //Getters and setters of year
+    string getYear() { return year; }
+    void setYear(string year) { this->year = year; }
+    //Getters and setters of month
+    string getMonth() { return month; }
+    void setMonth(string month) { this->month = month; }
+    //Getters and setters of day
+    string getDay() { return day; }
+    void setDay(string day) { this->day = day; }
+    //Calculates the age of the person with the year of birth
+    string calcAge() {
+        int age;
+        age = 2020 - atoi(year.c_str());
+        return to_string(age);
+    }
 
-protected:
 private:
-    string day;
-    string month;
     string year;
+    string day;
+    string month;    
 };
 #endif
 
