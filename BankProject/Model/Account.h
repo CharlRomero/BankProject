@@ -15,16 +15,17 @@ using namespace std;
 
 class Account {
 public:
-    Account(string, int);
-    Account();
-    ~Account();
-    string getNumAccount(void);
-    void setNumAccount(string newNumAccount);
+    //Constructors
+    Account(string numAccount) { this->numAccount = numAccount; }
+    Account() {}
+    //Destroyer
+    ~Account() {}
+    //Getter and setter of number account
+    string getNumAccount(void) { return numAccount; }
+    void setNumAccount(string numAccount) { this->numAccount = numAccount; }
     string createNumAccount(void);
 
-protected:
 private:
-    string numAccount;
-    int typeAccount;
+    string numAccount;    
 };
 #endif
