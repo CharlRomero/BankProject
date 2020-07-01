@@ -7,15 +7,7 @@
 using namespace std;
 
 int main() {
-    Menu start;
-	string options[] = { "Suma          ",
-					  "Resta         ",
-					  "Multiplicación",
-					  "Division      ",
-					  "Factorial     ",
-					  "Potencia      ",
-					  "Salir         " };
-    start.menu(options);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

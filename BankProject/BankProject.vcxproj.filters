@@ -16,6 +16,9 @@
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{69a2a92f-324c-4050-b0c3-9660707b7635}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{9a194482-4793-4ff9-83a3-a838d6376694}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BankProject.cpp">
@@ -23,9 +26,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BankStream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -35,14 +35,35 @@
     <ClInclude Include="Account.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Date.h">
+    <ClInclude Include="Transaction.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\NaturalClient.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Customer.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\LegalClient.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="Person.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Transaction.h">
-      <Filter>Header Files\Model</Filter>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BankStream.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller\ControllerAccount.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Check.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputData.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,8 +6,8 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string>
-#include "Account.h"
-#include "Person.h"
+#include "..\BankProject\Model\Account.h"
+#include "..\BankProject\Model\Person.h"
 using namespace std;
 
 class Menu {
@@ -48,6 +48,7 @@ private:
 	string* transactionOption	= new string[3];
 	string* typeClientOption	= new string[3];
 };
+
 void Menu::menuTypeClient() {
 	int cursor = 0;
 	char tecla;
