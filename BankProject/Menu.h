@@ -1,5 +1,3 @@
-#pragma once
-
 #if !defined(__Menu_h)
 #define __Menu_h
 
@@ -10,48 +8,47 @@
 #include <string>
 #include "Account.h"
 #include "Person.h"
-#include "LegalClient.h"
-#include "NaturalClient.h"
 using namespace std;
 
 class Menu {
 public:
-	Menu();
-	void menu( Account a);
-	void funMenuAccount(int, Account a);
-	void funMenuTransaction( Account a);
-	void funMenuTypeClient( Account a);
+	Menu() {
+
+		*(menuHead + 0)				= "	Menu cuenta			";
+		*(menuHead + 1)				= "	Menu transaccion	";
+		*(menuHead + 2)				= "	Menu cliente		";
+		*(menuHead + 3)				= "	Salir				";
+
+		*(accountOption + 0)		= "	Cuenta Ahorros				";
+		*(accountOption + 1)		= "	Cuenta Corriente			";
+		*(accountOption + 2)		= "	Regresar al menu principal	";
+
+		*(clientOption + 0)			= "	Cedula						";
+		*(clientOption + 1)			= "	RUC							";
+		*(clientOption + 2)			= "	Regresar al menu principal	";
+
+		*(transactionOption + 0)	= "	Deposito					";
+		*(transactionOption + 1)	= "	Retiro						";
+		*(transactionOption + 2)	= "	Regresar al menu principal	";
+
+		*(typeClientOption + 0)		= "	Cliente Natural				";
+		*(typeClientOption + 1)		= "	Cliente Juridico			";
+		*(typeClientOption + 2)		= "	Regresar al menu principal	";
+
+	}
+	void menu();
+	void menuClient();
+	void menuAccount();
+	void menuTransaction();
+	void menuTypeClient();
 private:
-	int options = 4;
-	string *menuHead = new string [4];
-	string *menuAccount = new string[3];
-	string *menuClient = new string[3];
-	string *menuTransaction = new string[3];
-	string *menuTypeClient = new string[3];
-	
+	string* menuHead			= new string[4];
+	string* accountOption		= new string[3];
+	string* clientOption		= new string[3];
+	string* transactionOption	= new string[3];
+	string* typeClientOption	= new string[3];
 };
-Menu::Menu()
-{
-	*(menuTypeClient + 0) = "Cliente Natural         ";
-	*(menuTypeClient + 1) = "Cliente Juridico        ";
-	*(menuTypeClient + 2) = "Menu Principal     ";
-
-
-	*(menuAccount + 0) = "Cuenta Ahorros         ";
-	*(menuAccount + 1) = "Cuenta Corriente        ";
-	*(menuAccount + 2) = "Menu Principal     ";
-
-	*(menuTransaction + 0) = "Deposito         ";
-	*(menuTransaction + 1) = "Retiro           ";
-	*(menuTransaction + 2) = "Menu Principal     ";
-
-	*(menuHead + 0) = "Consulta         ";
-	*(menuHead + 1) = "Crear Cuenta        ";
-	*(menuHead + 2) = "Transaccion     ";
-	*(menuHead + 3) = "Salir         ";
-}
-void Menu::funMenuTypeClient( Account a)
-{
+void Menu::menuTypeClient() {
 	int cursor = 0;
 	char tecla;
 	int cont = 1;
@@ -64,14 +61,14 @@ void Menu::funMenuTypeClient( Account a)
 		for (int i = 0; i < 3; i++) {
 			if (cursor == i) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
-				cout << *(menuTypeClient + i) << endl;
+				cout << *(typeClientOption + i) << endl;
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 			}
 			else {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				cout << *(menuTypeClient + i) << endl;
+				cout << *(typeClientOption + i) << endl;
 			}
-		}//complejidad de algoritmos ejemplo
+		}
 		for (;;) {
 			tecla = _getch();
 			if (tecla == 80) {
@@ -84,29 +81,26 @@ void Menu::funMenuTypeClient( Account a)
 			if (tecla == 72) {
 				cursor--;
 				if (cursor == -1) {
-					cursor = 3 + 1;
+					cursor = 4;
 				}
 				break;
 			}
 			if (tecla == 13) {
 				switch (cursor) {
-				case 0:
-					funMenuAccount(1, a);
+				case 0:					
 					break;
-				case 1:
-					funMenuAccount(2, a);
+				case 1:					
 					break;
 				case 2:
-					this->menu( a);
+					menu();
 					break;
 				}
 			}
 		}
 	}
-	free(menuTypeClient);
+	free(typeClientOption);
 }
-void Menu::funMenuTransaction( Account a)
-{
+void Menu::menuClient() {
 	int cursor = 0;
 	char tecla;
 	int cont = 1;
@@ -114,24 +108,24 @@ void Menu::funMenuTransaction( Account a)
 
 	for (;;) {
 		system("cls");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
-		cout << "                SELECCIONE UNA OPCION         " << endl;
+		//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 70);
+		cout << "                MENU CLIENTES         " << endl;
 		for (int i = 0; i < 3; i++) {
 			if (cursor == i) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
-				cout << *(menuTransaction + i) << endl;
+				cout << *(clientOption + i) << endl;
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 			}
 			else {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				cout << *(menuTransaction + i) << endl;
+				cout << *(clientOption + i) << endl;
 			}
 		}//complejidad de algoritmos ejemplo
 		for (;;) {
 			tecla = _getch();
 			if (tecla == 80) {
 				cursor++;
-				if (cursor == 7) {
+				if (cursor == 3) {
 					cursor = 0;
 				}
 				break;
@@ -139,58 +133,51 @@ void Menu::funMenuTransaction( Account a)
 			if (tecla == 72) {
 				cursor--;
 				if (cursor == -1) {
-					cursor = 3 + 1;
+					cursor = 4;
 				}
 				break;
 			}
 			if (tecla == 13) {
 				switch (cursor) {
 				case 0:
-					funMenuAccount(4, a);
 					break;
 				case 1:
-					funMenuAccount(5, a);
 					break;
 				case 2:
-					this->menu(a);
+					menu();
 					break;
 				}
 			}
 		}
 	}
-	free(menuTransaction);
+	free(clientOption);
 }
-
-void Menu::funMenuAccount(int n, Account a)
-{
+void Menu::menuAccount() {
 	int cursor = 0;
 	char tecla;
 	int cont = 1;
-	string auxAccont;
-	Person *p;
-	Natural natural;
-	Legal legal;
+
 	system("cls");
 	for (;;) {
 		system("cls");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
-		cout << "                SELECCIONE UNA OPCION         " << endl;
+		//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+		cout << "                MENU CUENTAS         " << endl;
 		for (int i = 0; i < 3; i++) {
 			if (cursor == i) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
-				cout << *(menuAccount + i) << endl;
+				cout << *(accountOption + i) << endl;
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 			}
 			else {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				cout << *(menuAccount + i) << endl;
+				cout << *(accountOption + i) << endl;
 			}
 		}//complejidad de algoritmos ejemplo
 		for (;;) {
 			tecla = _getch();
 			if (tecla == 80) {
 				cursor++;
-				if (cursor == 7) {
+				if (cursor == 3) {
 					cursor = 0;
 				}
 				break;
@@ -198,83 +185,26 @@ void Menu::funMenuAccount(int n, Account a)
 			if (tecla == 72) {
 				cursor--;
 				if (cursor == -1) {
-					cursor = 3 + 1;
+					cursor = 4;
 				}
 				break;
 			}
 			if (tecla == 13) {
 				switch (cursor) {
 				case 0:
-					if (n == 1)
-					{
-						natural.readDates();
-						auxAccont =  a.createNumAccount(11, natural.getId()); //11 para cuenta ahorros
-
-					}else if (n == 2)
-					{
-						//crear cuenta de cliente juridico RUC 
-						legal.readDates();
-						auxAccont = a.createNumAccount(11, legal.getRUC());
-						cout << "crear cuenta tipo juricido (Ruc)";
-					}
-					else if(n == 3)
-					{
-						//leer nuemro cuenta e imprimir todas las cuentas de esta perosna (consulta)
-						cout << "Realizar una consulta";
-					}
-					else if (n == 4)
-					{
-						//realizar transaccion de desposito para ahorros
-						cout << "realizar transaccion de desposito para ahorros";
-					}
-					else if (n == 5)
-					{
-						//realizar transaccion de retiro para ahorros
-						cout << "realizar transaccion de desposito para ahorros";
-					}
 					break;
 				case 1:
-					if (n == 1)
-					{
-						natural.readDates();
-						auxAccont = a.createNumAccount(22, natural.getId()); //22 para cuenta corriente
-
-
-					}
-					else if (n == 2)
-					{
-						legal.readDates();
-						auxAccont = a.createNumAccount(11, legal.getRUC());
-						//crear cuenta de cliente juridico RUC 
-						cout << "crear cuenta tipo juricido (Ruc)"; 
-					}
-					else if (n == 3)
-					{
-						//leer nuemro cuenta e imprimir todas las cuentas de esta perosna (consulta)
-						cout << "Realizar una consulta";
-					}
-					else if (n == 4)
-					{
-						//realizar transaccion de desposito para corriente
-						cout << "realizar transaccion de desposito para corriente";
-					}
-					else if (n == 5)
-					{
-						//realizar transaccion de retiro para ahorros
-						cout << "realizar transaccion de desposito para corriente";
-					}
 					break;
 				case 2:
-					this->menu(a);
+					menu();
 					break;
 				}
 			}
 		}
 	}
-	free(menuAccount);
+	free(accountOption);
 }
-void Menu::menu(Account a) {
-
+void Menu::menuTransaction() {
 	int cursor = 0;
 	char tecla;
 	int cont = 1;
@@ -282,9 +212,62 @@ void Menu::menu(Account a) {
 
 	for (;;) {
 		system("cls");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
-		cout << "                BIENVENIDO                    " << endl;
-		for (int i = 0; i < options; i++) {
+		//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+		cout << "                MENU TRANSACCION         " << endl;
+		for (int i = 0; i < 3; i++) {
+			if (cursor == i) {
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+				cout << *(transactionOption + i) << endl;
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+			}
+			else {
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				cout << *(transactionOption + i) << endl;
+			}
+		}//complejidad de algoritmos ejemplo
+		for (;;) {
+			tecla = _getch();
+			if (tecla == 80) {
+				cursor++;
+				if (cursor == 3) {
+					cursor = 0;
+				}
+				break;
+			}
+			if (tecla == 72) {
+				cursor--;
+				if (cursor == -1) {
+					cursor = 4;
+				}
+				break;
+			}
+			if (tecla == 13) {
+				switch (cursor) {
+				case 0:
+					break;
+				case 1:
+					break;
+				case 2:
+					menu();
+					break;
+				}
+			}
+		}
+	}
+	free(transactionOption);
+}
+//Menu principal
+void Menu::menu() {
+
+	int cursor = 0;
+	char tecla;
+	int cont = 1;
+
+	for (;;) {
+		system("cls");
+		//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+		cout << "					BIENVENIDO                    " << endl;
+		for (int i = 0; i < 4; i++) {
 			if (cursor == i) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
 				cout << *(menuHead + i) << endl;
@@ -292,14 +275,14 @@ void Menu::menu(Account a) {
 			}
 			else {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				cout << *(menuHead+i) << endl;
+				cout << *(menuHead + i) << endl;
 			}
 		}//complejidad de algoritmos ejemplo
 		for (;;) {
 			tecla = _getch();
 			if (tecla == 80) {
 				cursor++;
-				if (cursor == 7) {
+				if (cursor == 4) {
 					cursor = 0;
 				}
 				break;
@@ -307,24 +290,24 @@ void Menu::menu(Account a) {
 			if (tecla == 72) {
 				cursor--;
 				if (cursor == -1) {
-					cursor = options + 1;
+					cursor = 5;
 				}
 				break;
 			}
 			if (tecla == 13) {
 				switch (cursor) {
 				case 0:
-					funMenuAccount(3, a);
+					menuAccount();
 					break;
 				case 1:
-					funMenuTypeClient(  a);
+					menuTransaction();
 					break;
 				case 2:
-					funMenuTransaction( a);
+					menuClient();
 					break;
 				case 3:
 					system("cls");
-					cout << endl << "<<<<<<<<<Gracias por usar nuestro programa>>>>>>>>>" << endl;
+					cout << endl << "<<<<<<<<<	Gracias por usar nuestro programa	>>>>>>>>>" << endl;
 					exit(1);
 					break;
 				}
@@ -333,5 +316,4 @@ void Menu::menu(Account a) {
 	}
 	free(menuHead);
 }
-
 #endif
