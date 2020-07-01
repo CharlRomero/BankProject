@@ -17,23 +17,22 @@ public:
         if (write.fail())
             cout << "No se pudo abrir el archivo..." << endl;
 
-        for (size_t i = 0; i < customer.size(); i++)
-            write << customer[i].getId() + " " + customer[i].getName() + " " + customer[i].getLastName() + " " + customer[i].getAge() + " " + customer[i].getNacionality() + " " + customer[i].getEmail() + "\n";
+        write << account.getNumAccount();
 
         write.close();
 	}
-	vector<Person> getData() {
+	vector<Account> getData() {
         read.open(path, ios::in);
 
         if (read.is_open()) {
-            string name, lastName, nacionality, id, age, email;
-            vector<Person> persons;
+            string path;
+            vector<Account> accounts;
             while (!read.eof()) {
-                read >> id >> name >> lastName >> age >> nacionality >> email;
-                Person person(name, lastName, id, age, nacionality, email);
-                persons.push_back(person);
+                read >> path;
+                Account account(path);
+                accounts.push_back(account);
             }
-            return persons;
+            return accounts;
         }
         else {
             cout << "No se pudo abrir el archivo..." << endl;
