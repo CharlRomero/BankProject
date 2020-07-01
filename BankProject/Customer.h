@@ -9,24 +9,15 @@
 #if !defined(__ModeloBancario_CustumerType_h)
 #define __ModeloBancario_CustumerType_h
 
-class Account;
-
 #include "Person.h"
 
 class Customer : public Person {
 public:
-    Customer();
-    ~Customer();
-    int getNatural(void);
-    void setNatural(int newNatural);
-    int getLegal(void);
-    void setLegal(int newLegal);
-
-    Account** acocount;
-
-protected:
-private:
-    int natural;
-    int legal;
+    //Constructors
+    Customer(string id, string name, string nacionality, string age, Date date) : Person(id, name, nacionality, age, date) {}
+    Customer(string id, string name, string nacionality, string age) : Person(id, name, nacionality, age) {}
+    Customer() : Person() {}
+    //Destroyer
+    ~Customer() {}
 };
 #endif
