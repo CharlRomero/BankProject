@@ -1,15 +1,13 @@
-#pragma once
 #if !defined(__Natural_h)
 #define __Natural_h
 #include "Person.h"
-class Natural : public Person
-{
+class NaturalClient : public Person {
 public:
 	//Constructors string id, string name, string nacionality, string age
-	Natural (string id, string name, string nacionality, string age) : Person (id, name, nacionality, age) {}
-	Natural () : Person() {}
+	NaturalClient (string id, string name, string nacionality, string age) : Person (id, name, nacionality, age) {}
+	NaturalClient () : Person() {}
 	//Destroyer
-	~Natural() {}	
+	~NaturalClient() {}	
 	/*void readDates() {
 		InputData<int> putDates;
 		InputData<string> putCI;
