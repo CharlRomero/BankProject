@@ -1,11 +1,9 @@
 #if !defined(__ModeloBancario_Banca_h)
 #define __ModeloBancario_Banca_h
 
-#include "..\BankProject\Model\Person.h"
+#include "..\Model\Person.h"
 #include <fstream>
-#include <string>
 #include <vector>
-#include <io.h>
 
 using namespace std;
 
@@ -20,10 +18,11 @@ public:
     string getPath() { return path; }
     void setPath(string path) { this->path = path; }
 
-    virtual void writeFile(vector<Person> customer) = 0;
-    virtual vector<Person> getData() = 0;
-
-private:    
-    string path;
+    virtual void writeFile() = 0;
+    
+protected:
+    ifstream read;
+    ofstream write;
+    string path;    
 };
 #endif
