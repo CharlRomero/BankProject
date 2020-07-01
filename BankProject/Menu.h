@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string>
 #include "..\BankProject\Model\Account.h"
-#include "..\BankProject\Model\Person.h"
+#include "..\BankProject\Model\NaturalClient.h"
 using namespace std;
 
 class Menu {
@@ -88,7 +88,7 @@ void Menu::menuTypeClient() {
 			}
 			if (tecla == 13) {
 				switch (cursor) {
-				case 0:					
+				case 0:										
 					break;
 				case 1:					
 					break;
@@ -306,9 +306,8 @@ void Menu::menu() {
 				case 2:
 					menuClient();
 					break;
-				case 3:
-					system("cls");
-					cout << endl << "<<<<<<<<<	Gracias por usar nuestro programa	>>>>>>>>>" << endl;
+				case 3:					
+					cout << "\n<<<<<<<<<	Gracias por usar nuestro programa	>>>>>>>>>" << endl;
 					exit(1);
 					break;
 				}

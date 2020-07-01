@@ -118,7 +118,16 @@ public:
         cout << message;
         cin >> value;
         while (check.character(value)) {
-            cout << "\nNo use caracteres especiales, ingrese nuevamente: ";
+            cout << "\nIngreso incorrecto, ingrese nuevamente: ";
+            cin >> value;
+        }
+        return value;
+    }
+    string ruc(string message) {
+        cout << message;
+        cin >> value;
+        while (check.ruc(value)) {
+            cout << "\nRUC incorrecto, ingrese nuevamente: ";
             cin >> value;
         }
         return value;
@@ -147,28 +156,5 @@ public:
 private:
     Check check;
     string day, month, year;
-};
-template <>         class InputData<Person> {
-public:
-    void data() {
-        InputData<string> enter;
-        InputData<Date> enterDate;        
-
-        name = enter.data("Ingrese su nombre: ");
-        lastName = enter.data("Ingrese su apellido: ");
-        nacionality = enter.data("Ingrese su nacionalidad: ");
-        ci = enter.CI("Ingrese su cedula: ");
-        while (check.character(name, lastName, nacionality)) {
-            name = enter.data("Ingrese su nombre: ");
-            lastName = enter.data("Ingrese su apellido: ");
-            nacionality = enter.data("Ingrese su nacionalidad: ");            
-        }
-        Person person(name, lastName, ci, nacionality, enterDate.date("Ingrese su fecha de nacimiento\n"));        
-
-        return person;
-    }
-private:
-    Check check;
-    string name, lastName, nacionality, ci;
 };
 #endif

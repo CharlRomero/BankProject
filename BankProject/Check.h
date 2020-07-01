@@ -84,7 +84,7 @@ public:
 
 		try {
 
-			if (identificationCard.length() < 9)
+			if (identificationCard.length() < 9 || identificationCard.length() > 10)
 				throw 1;
 
 			for (size_t i = 0; i < identificationCard.length(); i++)
@@ -102,6 +102,39 @@ public:
 				if (identificationCard[2] < 7)
 					throw 1;
 				if (identificationCard[9] != lastDigit(identificationCard))
+					throw 1;
+			}
+
+		}
+		catch (int e) {
+			return true;
+		}
+		return false;
+	}
+	bool ruc(string ruc) {
+
+		try {
+
+			if (ruc.length() < 12 || ruc.length() > 13)
+				throw 1;
+
+			for (size_t i = 0; i < ruc.length(); i++)
+			{
+				if (isalpha(ruc[i]))
+					throw 1;
+				if (!isdigit(ruc[i]))
+					throw 1;
+				if (ruc[i] == '.')
+					throw 1;
+				if (ruc[i] == '-')
+					throw 1;
+				if (ruc[0] < '3' && ruc[1] < '5')
+					throw 1;
+				if (ruc[2] < '7')
+					throw 1;
+				if (ruc[9] != lastDigit(ruc))
+					throw 1;
+				if (ruc[10] != '0' || ruc[11] != '0' || ruc[12] != '1')
 					throw 1;
 			}
 

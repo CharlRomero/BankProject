@@ -29,7 +29,7 @@ public:
             vector<NaturalClient> naturalClients;
             while (!read.eof()) {
                 read >> id >> name >> nacionality >> age;
-                NaturalClient naturalClient(id, name, nacionality, age);
+                NaturalClient naturalClient(id, name, nacionality, age);                
                 naturalClients.push_back(naturalClient);
             }
             return naturalClients;

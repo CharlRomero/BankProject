@@ -1,77 +1,54 @@
-/***********************************************************************
- * Module:  Person.h
- * Author:  Abigail
- * Modified: Saturday, June 13, 2020 21:37:31
- * Purpose: Declaration of the class Person
- ***********************************************************************/
-
 #if !defined(__Person_h)
 #define __Person_h
+
 #include "Account.h"
 #include <iostream>
-#include"InputData.h"
+#include "..\Date.h"
+#include "..\InputData.h"
+
 using namespace std;
 class Person {
 public:
-	Person(string, string, int);
-	Person();
-	~Person();
-	string getName(void);
-	void setName(string);
-
-	string getNacionality(void);
-	void setNacionality(string);
-
-	string getlastName(void);
-	void setlastName(string);
-	int getYear(void);
-	void setYear(int);
-	int getDay(void);
-	void setDay(int);
-	int getMonth(void);
-	void setMonth(int);
-	virtual void readDates()=0;
-protected:
+	//Constructors
+	Person(Date date) {
+		this->age = date.calcAge();
+	}
+	Person(string id, string name, string nacionality, string age, Date date) {
+		this->id = id;
+		this->name = name;		
+		this->nacionality = nacionality;
+		this->age = date.calcAge();
+	}
+	Person(string id, string name, string nacionality, string age) {
+		this->id = id;
+		this->name = name;
+		this->nacionality = nacionality;
+		this->age = age;
+	}
+	Person() { this->name = ""; this->nacionality = ""; this->age = ""; }
+	//Destroyer
+	~Person() {}
+	//Getter and setter of id
+	string getId() { return id; }
+	void setId(string id) { this->id = id; }
+	//Getter and setter of name
+	string getName() { return name; }
+	void setName(string name) { this->name = name; }
+	//Getter and setter of nacionality
+	string getNacionality() { return nacionality; }
+	void setNacionality(string nacionality) { this->nacionality = nacionality; }
+	//Getter and setter of age
+	string getAge() { return age; }
+	void setAge(string age) { this->age = age; }
+	//Getter and setter of last name
+	string getLastName() { return lastName; }
+	void setLastName(string lastName) { this->lastName = lastName; }
+	virtual void readDatas() = 0;
+private:
+	string id;
 	string name;
-	string nacionality;
 	string lastName;
-	int day;
-	int month;
-	int year;
+	string nacionality;
+	string age;	
 };
-Person::Person(string name, string nacionality, int age) {
-	this->name = name;
-	this->nacionality = nacionality;
-}
-
-Person::Person() { this->name = ""; this->nacionality = ""; this->year = 0; }
-Person::~Person() {}
-
-string Person::getName() { return name; }
-void Person::setName(string name) { this->name = name; }
-
-
-
-string Person::getNacionality() { return nacionality; }
-void Person::setNacionality(string nacionality) { this->nacionality = nacionality; }
-
-int Person::getDay() { return day; }
-void Person::setDay(int dy) { this->day = dy; }
-
-int Person::getMonth() { return month; }
-void  Person::setMonth(int dy) { this->month = dy;}
-
-int Person::getYear() { return year; }
-void  Person::setYear(int dy) { this->year = dy; }
-
-
-string Person::getlastName() { return lastName; }
-void Person::setlastName(string named2) { this->lastName = named2; }
-
-void Person::readDates()
-{
-	InputData<int> putDates;
-	InputData<string> putCI;
-	this->setName(putDates.readString("Ingrese su nombre: "));
-}
 #endif
