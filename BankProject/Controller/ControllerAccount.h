@@ -25,11 +25,11 @@ public:
         read.open(path, ios::in);
 
         if (read.is_open()) {
-            string path;
+            string numAccount;
             vector<Account> accounts;
             while (!read.eof()) {
-                read >> path;
-                Account account(path);
+                read >> numAccount;
+                Account account(numAccount);
                 accounts.push_back(account);
             }
             return accounts;
