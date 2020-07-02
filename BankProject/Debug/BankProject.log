@@ -6,4 +6,12 @@ C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Check.h(
 C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Check.h(142,14): warning C4101: 'e': unreferenced local variable
 C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Check.h(157,14): warning C4101: 'e': unreferenced local variable
 C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Check.h(171,14): warning C4101: 'e': unreferenced local variable
-  BankProject.vcxproj -> C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\Debug\BankProject.exe
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Model\LegalClient.h(30,17): error C3646: 'account': unknown override specifier
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Model\LegalClient.h(30,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Model\LegalClient.h(25,23): error C2065: 'account': undeclared identifier
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Controller\ControllerLegalClient.h(23,16): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Model\NaturalClient.h(34,17): error C3646: 'account': unknown override specifier
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Model\NaturalClient.h(34,17): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Model\NaturalClient.h(28,3): error C2065: 'account': undeclared identifier
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Model\NaturalClient.h(28,1): error C2059: syntax error: ')'
+C:\Users\Charlie\source\repos\EstructuraDeDatos\BankProject\BankProject\Controller\ControllerNaturalClient.h(17,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.

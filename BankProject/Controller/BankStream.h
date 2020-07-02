@@ -10,19 +10,20 @@ using namespace std;
 class BankStream {
 public:
     //Constructors
-    BankStream(string path) { this->path = path; };
-    BankStream() {}
-    //destroyer
+   // BankStream(string path) { this->path = path; };
+    BankStream() { }//this->path = ""; }
+    //Destroyer
     ~BankStream() {}
     //Getter and setter of path
-    string getPath() { return path; }
-    void setPath(string path) { this->path = path; }
+   // string getPath() { return path; }
+    //void setPath(string path) { this->path = path; }
 
-    virtual void writeFile() = 0;
+    //void writeFile(Person&);
     
 protected:
     ifstream read;
-    ofstream write;
-    string path;    
+    FILE* file;
+private:
+    //string path;    
 };
 #endif

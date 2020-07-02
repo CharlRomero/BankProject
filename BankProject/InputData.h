@@ -87,7 +87,7 @@ private:
     Check check;
     string value;
 };
-template <>         class InputData<double> {
+template <>         class InputData<float> {
 public:
     string realArray(int i) {
         cout << "\nIngrese valor real[" << i << "]: ";

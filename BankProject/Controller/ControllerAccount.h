@@ -8,21 +8,15 @@
 class ControllerAccount : BankStream {
 public:
 	//Constructor
-	ControllerAccount(string path) : BankStream(path) {}
+	ControllerAccount() : BankStream() {}
 	//Destroyer
 	~ControllerAccount() {}
 
-	void writeFile() {
-        write.open(path, ios::out | ios::app);
-        if (write.fail())
-            cout << "No se pudo abrir el archivo..." << endl;
-
-        write << account.getNumAccount();
-
-        write.close();
+	virtual void writeFile(Person person) {
+        cout << " ";
 	}
-	vector<Account> getData() {
-        read.open(path, ios::in);
+	/*vector<Account> getData() {
+        read.open(getPath(), ios::in);
 
         if (read.is_open()) {
             string numAccount;
@@ -38,7 +32,7 @@ public:
             cout << "No se pudo abrir el archivo..." << endl;
         }
         read.close();
-	}
+	}*/
 private:
     Account account;
 };

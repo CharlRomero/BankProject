@@ -5,41 +5,78 @@
 #include "BankStream.h"
 #include "..\Model\NaturalClient.h"
 
-class ControllerNaturalClient : BankStream{
+class ControllerNaturalClient : BankStream {
 public:
     //Constructor
-    ControllerNaturalClient(string path) : BankStream(path) {}
+    ControllerNaturalClient() : BankStream() {}
     //Destroyer
     ~ControllerNaturalClient() {}
 
-    void writeFile() {
-        write.open(path, ios::out | ios::app);
-        if (write.fail())
-            cout << "No se pudo abrir el archivo..." << endl;
-
-        write << naturalClient.getId() + " " + naturalClient.getName() + " " + naturalClient.getNacionality() + " " + naturalClient.getAge();
-
-        write.close();
+    void writeFile(NaturalClient naturalClient) { 
+    string cadena = naturalClient.getNumAccount() + " " + naturalClient.getId() + " " + naturalClient.getName() + " " + naturalClient.getLastName() + " " + naturalClient.getNacionality() + " " + naturalClient.getAge() + "\n";
+    file = fopen("naturalClients.txt", "a");
+    fputs(cadena.c_str(), file);
+    fclose(file);
+    system("pause");
     }
-    vector<NaturalClient> getData() {
-        read.open(path, ios::in);
+    void print(string consult) {
+        person = this->getData(consult);
+        for (int i = 0; i < 10; i++)
+            cout << *(person + i) << endl;
 
+    }
+
+    int createFinalDigit(string consult) {
+
+        read.open("legalClients.txt", ios::in);
         if (read.is_open()) {
-            string id, name, nacionality, age;
-            vector<NaturalClient> naturalClients;
+            string ruc, name, lastName, nacionality, age, numAccount;
+            waxPerson();
+            int i = 0;
             while (!read.eof()) {
-                read >> id >> name >> nacionality >> age;
-                NaturalClient naturalClient(id, name, nacionality, age);                
-                naturalClients.push_back(naturalClient);
+                if (!read.eof()) {
+                    if (consult == ruc) {
+                        i++;
+                    }
+                }
+
             }
-            return naturalClients;
+            return i;
         }
         else {
             cout << "No se pudo abrir el archivo..." << endl;
         }
         read.close();
     }
+
 private:
-    NaturalClient naturalClient;
+    FILE *file;
+    string* person = new string[10];
+    string* getData(string consult) {
+        read.open("naturalClients.txt", ios::in);
+        int i = 0;
+        
+        if (read.is_open()) {
+            string numAccount, id, name, lastName, nacionality, age;
+            vector<NaturalClient> naturalClients;
+            while (!read.eof()) {
+                read >> numAccount >> id >> name >> lastName >> nacionality >> age;
+                if (consult == id) {
+                    *(person + i) = id + " " + name + " " + lastName + " " + nacionality + " " + age + " " + numAccount;
+                    i++;
+                }
+            }
+            return person;
+        }
+        else {
+            cout << "No se pudo abrir el archivo..." << endl;
+        }
+        read.close();
+    }
+    void waxPerson() {
+        for (size_t i = 0; i < 10; i++) {
+            *(person + i) = " ";
+        }
+    }
 };
 #endif

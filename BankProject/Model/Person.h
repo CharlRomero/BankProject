@@ -1,7 +1,6 @@
 #if !defined(__Person_h)
 #define __Person_h
 
-#include "Account.h"
 #include <iostream>
 #include "..\Date.h"
 #include "..\InputData.h"
@@ -13,21 +12,29 @@ public:
 	Person(Date date) {
 		this->age = date.calcAge();
 	}
-	Person(string id, string name, string nacionality, string age, Date date) {
-		this->id = id;
-		this->name = name;		
-		this->nacionality = nacionality;
-		this->age = date.calcAge();
-	}
-	Person(string id, string name, string nacionality, string age) {
+	Person(string id, string name, string nacionality, Date date) {
 		this->id = id;
 		this->name = name;
 		this->nacionality = nacionality;
+		this->age = date.calcAge();
+	}
+	/*Person(string name, string lastName, string nacionality, Date date) {	
+		this->name = name;
+		this->lastName = lastName;
+		this->nacionality = nacionality;
+		this->age = date.calcAge();
+	}*/
+	Person(string id, string name, string lastName, string nacionality, string age, string numAccount) {
+		this->id = id;
+		this->name = name;
+		this->lastName = lastName;
+		this->nacionality = nacionality;
 		this->age = age;
+		this->numAccount = numAccount;
 	}
 	Person() { this->name = ""; this->nacionality = ""; this->age = ""; }
 	//Destroyer
-	~Person() {}
+	//~Person() {}
 	//Getter and setter of id
 	string getId() { return id; }
 	void setId(string id) { this->id = id; }
@@ -43,12 +50,19 @@ public:
 	//Getter and setter of last name
 	string getLastName() { return lastName; }
 	void setLastName(string lastName) { this->lastName = lastName; }
+
+	string getNumAccount() { return numAccount; }
+	void setNumAccount(string numAccount) { this->numAccount = numAccount; }
+
 	virtual void readDatas() = 0;
+protected:
+	string numAccount;
 private:
 	string id;
-	string name;
+	string name;	
 	string lastName;
 	string nacionality;
-	string age;	
+	string age;
+
 };
 #endif

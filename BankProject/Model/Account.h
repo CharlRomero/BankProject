@@ -9,22 +9,49 @@
 #define __ModeloBancario_Acocount_h
 
 #include <iostream>
+#include"..\Controller\ControllerLegalClient.h"
+#include"..\Controller\ControllerNaturalClient.h"
 
 using namespace std;
 
 class Account {
 public:
     //Constructors
-    Account(string numAccount) { this->numAccount = numAccount; }
     Account() {}
     //Destroyer
-    ~Account() {}
-    //Getter and setter of number account
-    string getNumAccount(void) { return numAccount; }
-    void setNumAccount(string numAccount) { this->numAccount = numAccount; }
-    string createNumAccount(void);
+    //~Account() {}
+    //Getter and setter of type account   
+    int getTypeAccount(void) { return typeAccount; }
+    void setTypeAccount(int typeAccount) { this->typeAccount = typeAccount; }
+
+    float getSaldo(void) { return saldo; }
+    void setSaldo(float saldo) { this->saldo = saldo; }
+
+    string createNumAccount(int type, string numci) {
+        setTypeAccount(type);
+        string digit;
+        ControllerLegalClient controlLegal;
+        ControllerNaturalClient controlNatural;
+        int aux;
+        if (typeAccount == 11) {            
+            digit = to_string(this->typeAccount) + "0";
+            aux = controlNatural.createFinalDigit(digit);
+            if(aux==0) {
+                digit = to_string(this->typeAccount) + to_string(aux) ;
+            }
+        }
+        if (typeAccount == 22) {
+            digit = to_string(this->typeAccount);
+            aux = controlLegal.createFinalDigit(digit);
+            if (aux == 0) {
+                digit = to_string(this->typeAccount) + to_string(aux);
+            }
+        }                
+        return digit + numci;
+    }
 
 private:
-    string numAccount;    
+    int typeAccount;
+    float saldo;
 };
 #endif

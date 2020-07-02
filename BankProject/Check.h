@@ -97,9 +97,9 @@ public:
 					throw 1;
 				if (identificationCard[i] == '-')
 					throw 1;
-				if (identificationCard[0] < 3 && identificationCard[1] < 5)
+				if (identificationCard[0] > 51 && identificationCard[1] > 53)
 					throw 1;
-				if (identificationCard[2] < 7)
+				if (identificationCard[2] > 55)
 					throw 1;
 				if (identificationCard[9] != lastDigit(identificationCard))
 					throw 1;
@@ -128,9 +128,9 @@ public:
 					throw 1;
 				if (ruc[i] == '-')
 					throw 1;
-				if (ruc[0] < '3' && ruc[1] < '5')
+				if (ruc[0] < 52 && ruc[1] < 53)
 					throw 1;
-				if (ruc[2] < '7')
+				if (ruc[2] > 55)
 					throw 1;
 				if (ruc[9] != lastDigit(ruc))
 					throw 1;

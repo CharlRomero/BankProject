@@ -32,9 +32,6 @@
     <ClInclude Include="Model\NaturalClient.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Customer.h">
-      <Filter>Header Files\Model</Filter>
-    </ClInclude>
     <ClInclude Include="Model\LegalClient.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
